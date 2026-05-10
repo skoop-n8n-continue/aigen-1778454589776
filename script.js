@@ -130,17 +130,17 @@ function renderMenu(data, mode) {
       const isLunchCombo = mode === 'lunch' && product.is_combo;
 
       const card = document.createElement('div');
-      card.className = \`product-card \${isLunchCombo ? 'combo-highlight' : ''}\`;
+      card.className = `product-card ${isLunchCombo ? 'combo-highlight' : ''}`;
 
       // Note: we're using data-bind-* attributes so the live preview works.
-      card.innerHTML = \`
-        <img class="product-image" data-bind-src="products.\${idx}.thumbnail" src="\${product.thumbnail}" data-bind-attr="alt:products.\${idx}.name" alt="\${product.name}">
+      card.innerHTML = `
+        <img class="product-image" data-bind-src="products.${idx}.thumbnail" src="${product.thumbnail}" data-bind-attr="alt:products.${idx}.name" alt="${product.name}">
         <div class="product-info">
-          <h3 class="product-name" data-bind-text="products.\${idx}.name">\${product.name}</h3>
-          <p class="product-desc" data-bind-text="products.\${idx}.description">\${product.description}</p>
-          <span class="product-price" data-bind-currency="products.\${idx}.price">$\${product.price.toFixed(2)}</span>
+          <h3 class="product-name" data-bind-text="products.${idx}.name">${product.name}</h3>
+          <p class="product-desc" data-bind-text="products.${idx}.description">${product.description}</p>
+          <span class="product-price" data-bind-currency="products.${idx}.price">$${product.price.toFixed(2)}</span>
         </div>
-      \`;
+      `;
       grid.appendChild(card);
     });
 
