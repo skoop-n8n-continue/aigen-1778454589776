@@ -1,0 +1,213 @@
+{
+  "app_id": "burger-specials-001",
+  "document_version": 1,
+  "sections": {
+    "app_settings": {
+      "primary_color": {
+        "type": "color",
+        "label": "Primary Color",
+        "value": "#E63946"
+      },
+      "secondary_color": {
+        "type": "color",
+        "label": "Secondary Color",
+        "value": "#F1FAEE"
+      },
+      "background_color": {
+        "type": "color",
+        "label": "Background Color",
+        "value": "#1D3557"
+      },
+      "text_color": {
+        "type": "color",
+        "label": "Text Color",
+        "value": "#FFFFFF"
+      },
+      "lunch_start_hour": {
+        "type": "number",
+        "label": "Lunch Rush Start Hour (0-23)",
+        "value": 11,
+        "meta": { "format": "integer" }
+      },
+      "lunch_end_hour": {
+        "type": "number",
+        "label": "Lunch Rush End Hour (0-23)",
+        "value": 14,
+        "meta": { "format": "integer" }
+      },
+      "late_night_start_hour": {
+        "type": "number",
+        "label": "Late Night Start Hour (0-23)",
+        "value": 21,
+        "meta": { "format": "integer" }
+      }
+    },
+    "storefront": {
+      "store_name": {
+        "type": "text",
+        "label": "Store Name",
+        "value": "Smash & Grab Burgers"
+      },
+      "tagline": {
+        "type": "text",
+        "label": "Tagline",
+        "value": "Fast, Fresh, Regional."
+      },
+      "logo": {
+        "type": "file",
+        "label": "Logo",
+        "value": "assets/storefront/logo_a1b2c3.png",
+        "meta": { "accepted_formats": ["png", "jpg", "svg"], "path": "assets/storefront/" }
+      },
+      "hero_image": {
+        "type": "file",
+        "label": "Hero Background Image",
+        "value": "assets/storefront/hero_d4e5f6.jpg",
+        "meta": { "accepted_formats": ["jpg", "png"], "path": "assets/storefront/" }
+      }
+    },
+    "categories": {
+      "type": "collection",
+      "label": "Menu Categories",
+      "item_schema": {
+        "id": { "type": "text", "label": "ID" },
+        "name": { "type": "text", "label": "Category Name" }
+      },
+      "value": [
+        { "id": "cat_b1u2r3", "name": "Burgers & Sandwiches" },
+        { "id": "cat_s4i5d6", "name": "Sides" },
+        { "id": "cat_d7r8i9", "name": "Drinks & Shakes" }
+      ]
+    },
+    "products": {
+      "type": "collection",
+      "label": "Menu Items",
+      "item_schema": {
+        "id": { "type": "text", "label": "ID" },
+        "name": { "type": "text", "label": "Item Name" },
+        "price": { "type": "number", "label": "Price", "meta": { "format": "currency" } },
+        "description": { "type": "textarea", "label": "Description" },
+        "category": { "type": "linked", "label": "Category", "meta": { "collection": "categories", "display_field": "name" } },
+        "thumbnail": {
+          "type": "file",
+          "label": "Photo",
+          "meta": { "accepted_formats": ["jpg", "png", "webp"], "path": "assets/products/" }
+        },
+        "is_combo": { "type": "boolean", "label": "Is Combo Deal" },
+        "available_late_night": { "type": "boolean", "label": "Available Late Night" }
+      },
+      "value": [
+        {
+          "id": "prod_1a2b3c",
+          "name": "Classic Burger Combo",
+          "price": 12.99,
+          "description": "Our classic burger with fries and a drink.",
+          "category": "cat_b1u2r3",
+          "thumbnail": "assets/products/prod_1_thumb_p1q2r3.jpg",
+          "is_combo": true,
+          "available_late_night": true
+        },
+        {
+          "id": "prod_4d5e6f",
+          "name": "Single Smash",
+          "price": 7.49,
+          "description": "One smash patty, cheese, house sauce.",
+          "category": "cat_b1u2r3",
+          "thumbnail": "assets/products/prod_2_thumb_p4q5r6.jpg",
+          "is_combo": false,
+          "available_late_night": true
+        },
+        {
+          "id": "prod_7g8h9i",
+          "name": "Double Smash Combo",
+          "price": 14.99,
+          "description": "Double smash burger with onion rings and a drink.",
+          "category": "cat_b1u2r3",
+          "thumbnail": "assets/products/prod_3_thumb_p7q8r9.jpg",
+          "is_combo": true,
+          "available_late_night": false
+        },
+        {
+          "id": "prod_0j1k2l",
+          "name": "Spicy Chicken Sandwich",
+          "price": 8.99,
+          "description": "Crispy chicken breast with spicy mayo.",
+          "category": "cat_b1u2r3",
+          "thumbnail": "assets/products/prod_4_thumb_p0q1r2.jpg",
+          "is_combo": false,
+          "available_late_night": false
+        },
+        {
+          "id": "prod_3m4n5o",
+          "name": "French Fries",
+          "price": 3.99,
+          "description": "Crispy golden fries.",
+          "category": "cat_s4i5d6",
+          "thumbnail": "assets/products/prod_5_thumb_p3q4r5.jpg",
+          "is_combo": false,
+          "available_late_night": true
+        },
+        {
+          "id": "prod_6p7q8r",
+          "name": "Onion Rings",
+          "price": 4.99,
+          "description": "Beer-battered onion rings.",
+          "category": "cat_s4i5d6",
+          "thumbnail": "assets/products/prod_6_thumb_p6q7r8.jpg",
+          "is_combo": false,
+          "available_late_night": false
+        },
+        {
+          "id": "prod_9s0t1u",
+          "name": "Fountain Drink",
+          "price": 2.49,
+          "description": "Choice of soda.",
+          "category": "cat_d7r8i9",
+          "thumbnail": "assets/products/prod_7_thumb_p9q0r1.jpg",
+          "is_combo": false,
+          "available_late_night": true
+        },
+        {
+          "id": "prod_2v3w4x",
+          "name": "Vanilla Shake",
+          "price": 5.49,
+          "description": "Thick hand-spun shake.",
+          "category": "cat_d7r8i9",
+          "thumbnail": "assets/products/prod_8_thumb_p2q3r4.jpg",
+          "is_combo": false,
+          "available_late_night": false
+        }
+      ]
+    },
+    "specials": {
+      "type": "collection",
+      "label": "Daily Specials",
+      "item_schema": {
+        "id": { "type": "text", "label": "ID" },
+        "day_of_week": {
+          "type": "enum",
+          "label": "Day of Week",
+          "meta": { "options": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Everyday"] }
+        },
+        "title": { "type": "text", "label": "Special Title" },
+        "description": { "type": "textarea", "label": "Special Description" },
+        "price": { "type": "number", "label": "Special Price", "meta": { "format": "currency" } },
+        "thumbnail": {
+          "type": "file",
+          "label": "Photo",
+          "meta": { "accepted_formats": ["jpg", "png", "webp"], "path": "assets/specials/" }
+        }
+      },
+      "value": [
+        {
+          "id": "spec_1a2b3c",
+          "day_of_week": "Everyday",
+          "title": "The Big Kahuna Burger",
+          "description": "Pineapple, teriyaki sauce, bacon, and swiss. Limited time only!",
+          "price": 10.99,
+          "thumbnail": "assets/specials/spec_1_thumb_s1t2u3.jpg"
+        }
+      ]
+    }
+  }
+}

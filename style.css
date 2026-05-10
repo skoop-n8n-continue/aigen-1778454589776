@@ -1,0 +1,282 @@
+:root {
+  /* Variables will be set by JS */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  position: relative;
+}
+
+#bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+#bg-layer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+#app-container {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+#app-container.loaded {
+  opacity: 1;
+}
+
+body.late-night-mode {
+  filter: brightness(0.6);
+}
+
+.mode-banner {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.mode-banner.hidden {
+  display: none;
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 35%;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  border-right: 4px solid var(--primary-color);
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+  border: 4px solid var(--secondary-color);
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.store-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Specials */
+.daily-special-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.special-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.special-card {
+  background-color: var(--secondary-color);
+  color: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-height: 500px;
+}
+
+.special-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.special-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.special-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.special-desc {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.special-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-align: right;
+}
+
+/* Main Menu */
+.menu-main {
+  width: 65%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.product-card.combo-highlight {
+  background-color: rgba(230, 57, 70, 0.15); /* var(--primary-color) with opacity */
+  border: 2px solid var(--primary-color);
+  position: relative;
+}
+
+.product-card.combo-highlight::before {
+  content: '★ LUNCH DEAL';
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 2px solid var(--secondary-color);
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Menu Board</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="bg-layer" data-bind-bg-image="storefront.hero_image"></div>
+  <div id="app-container">
+    <div id="mode-banner" class="mode-banner hidden"></div>
+
+    <div class="layout">
+      <!-- Sidebar / Brand & Specials -->
+      <aside class="sidebar">
+        <div class="brand">
+          <img class="logo" data-bind-src="storefront.logo" alt="Logo">
+          <h1 class="store-name" data-bind-text="storefront.store_name"></h1>
+          <p class="tagline" data-bind-text="storefront.tagline"></p>
+        </div>
+
+        <div class="daily-special-container">
+          <h2 class="special-header">Today's Special</h2>
+          <div class="special-card"></div>
+        </div>
+      </aside>
+
+      <!-- Main Menu Area -->
+      <main class="menu-main">
+        <div class="menu-categories"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
